@@ -1,0 +1,148 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #eee;
+}
+
+header {
+  background: black;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 4px solid #009246; /* green stripe */
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: white;
+}
+
+header p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+main {
+  padding: 20px;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.5s ease;
+  user-select: none;
+}
+
+#dish-img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+#dish-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+#dish-desc {
+  font-style: italic;
+  color: #ccc;
+  max-width: 600px;
+  margin-bottom: 10px;
+}
+
+#dish-ingredients {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+#dish-ingredients li::before {
+  content: "🍝 ";
+}
+
+#dish-price {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #f4e04d;
+}
+
+button {
+  background-color: #009246; /* Green */
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #007a3d;
+}
+
+footer {
+  background: black;
+  color: #aaa;
+  text-align: center;
+  padding: 15px;
+  border-top: 4px solid #ce2b37; /* red stripe */
+}
+
+#payment-section {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#payment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#payment-form input {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #222;
+  color: #fff;
+  width: 250px;
+}
+
+#payment-form button {
+  background-color: #ce2b37; /* Red */
+}
+
+#payment-form button:hover {
+  background-color: #a41e2b;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.6s ease;
+}

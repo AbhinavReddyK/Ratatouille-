@@ -2,136 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trattoria Roma - Menu</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ratatouille Restaurant</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Trattoria Roma</h1>
-    <p>Authentic Italian Cuisine Since 1992</p>
+  <header class="hero">
+    <h1>Welcome to Ratatouille!</h1>
+    <p>Delicious French cuisine inspired by Remy the Chef</p>
+    <a href="#menu" class="btn">Explore Menu</a>
   </header>
 
-  <main>
-    <div class="slider" id="slider">
-      <img id="dish-img" src="" alt="Dish Image" class="slide-in">
-      <h2 id="dish-name"></h2>
-      <p id="dish-desc"></p>
-      <ul id="dish-ingredients"></ul>
-      <p id="dish-price"></p>
-      <button id="order-button" onclick="selectItem()">Order Now</button>
-    </div>
+  <section class="about">
+    <h2>About Us</h2>
+    <p>At Ratatouille, we serve gourmet dishes crafted with passion and love. Experience a true Parisian kitchen led by our talented chefs!</p>
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/50/RatatouillePoster.jpg" alt="Remy cooking" />
+  </section>
 
-    <div id="payment-section" class="hidden">
-      <h2>Payment Method</h2>
-      <form id="payment-form">
-        <input type="text" id="card-number" placeholder="Card Number" required />
-        <input type="text" id="card-expiry" placeholder="MM/YY" required />
-        <input type="text" id="card-cvc" placeholder="CVC" required />
-        <button type="submit">Complete Payment</button>
-      </form>
+  <section class="menu-preview" id="menu">
+    <h2>Our Specialties</h2>
+    <div class="menu-items">
+      <div class="item">
+        <img src="https://cdn.pixabay.com/photo/2020/09/01/06/17/ratatouille-5532617_1280.jpg" alt="Ratatouille Dish" />
+        <h3>Classic Ratatouille</h3>
+      </div>
+      <div class="item">
+        <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/french-onion-soup-2296734_1280.jpg" alt="French Onion Soup" />
+        <h3>French Onion Soup</h3>
+      </div>
+      <div class="item">
+        <img src="https://cdn.pixabay.com/photo/2017/04/23/08/38/creme-brulee-2256198_1280.jpg" alt="Crème Brûlée" />
+        <h3>Crème Brûlée</h3>
+      </div>
     </div>
-  </main>
+  </section>
 
   <footer>
-    <p>📍 Florence, Italy | 📞 +39 055 123 456 | 🍷 @trattoriaroma</p>
+    <p>&copy; 2025 Ratatouille Restaurant | Designed by Abhinav Reddy</p>
   </footer>
-
-  <script>
-    const dishes = [
-      {
-        name: "Margherita Pizza",
-        desc: "A classic Neapolitan delight with fresh mozzarella, tomatoes, and basil.",
-        img: "https://images.unsplash.com/photo-1601924582975-7d8b41700777?auto=format&fit=crop&w=800&q=80",
-        ingredients: ["Wheat Dough", "Tomato Sauce", "Fresh Mozzarella", "Fresh Basil", "Olive Oil"],
-        price: "$12.00"
-      },
-      {
-        name: "Spaghetti Carbonara",
-        desc: "Traditional Roman pasta with eggs, cheese, pancetta, and pepper.",
-        img: "https://images.unsplash.com/photo-1608759263937-3ba6b2bbf06c?auto=format&fit=crop&w=800&q=80",
-        ingredients: ["Spaghetti", "Eggs", "Pecorino Romano", "Pancetta", "Black Pepper"],
-        price: "$14.00"
-      },
-      {
-        name: "Lasagna Bolognese",
-        desc: "Layered pasta with rich meat sauce and creamy béchamel.",
-        img: "https://images.unsplash.com/photo-1604908177522-937f6528eec0?auto=format&fit=crop&w=800&q=80",
-        ingredients: ["Pasta Sheets", "Bolognese Sauce", "Béchamel", "Parmesan Cheese"],
-        price: "$15.00"
-      },
-      {
-        name: "Caprese Salad",
-        desc: "Fresh mozzarella, tomatoes, and basil drizzled with olive oil.",
-        img: "https://images.unsplash.com/photo-1566740933432-cd37a1781c7a?auto=format&fit=crop&w=800&q=80",
-        ingredients: ["Tomatoes", "Fresh Mozzarella", "Basil", "Olive Oil", "Balsamic Glaze"],
-        price: "$10.00"
-      },
-      {
-        name: "Risotto ai Funghi",
-        desc: "Creamy risotto with porcini mushrooms and white wine.",
-        img: "https://images.unsplash.com/photo-1631368328562-86c5eae8ae3e?auto=format&fit=crop&w=800&q=80",
-        ingredients: ["Arborio Rice", "Porcini Mushrooms", "Parmesan", "White Wine", "Butter"],
-        price: "$13.50"
-      }
-    ];
-
-    let current = 0;
-
-    function updateDish() {
-      const dish = dishes[current];
-      document.getElementById("dish-img").src = dish.img;
-      document.getElementById("dish-name").textContent = dish.name;
-      document.getElementById("dish-desc").textContent = dish.desc;
-      document.getElementById("dish-price").textContent = `Price: ${dish.price}`;
-      const ingredientsList = document.getElementById("dish-ingredients");
-      ingredientsList.innerHTML = "";
-      dish.ingredients.forEach(ing => {
-        const li = document.createElement("li");
-        li.textContent = ing;
-        ingredientsList.appendChild(li);
-      });
-    }
-
-    function nextDish() {
-      current = (current + 1) % dishes.length;
-      updateDish();
-    }
-
-    function prevDish() {
-      current = (current - 1 + dishes.length) % dishes.length;
-      updateDish();
-    }
-
-    function selectItem() {
-      document.getElementById("slider").classList.add("hidden");
-      document.getElementById("payment-section").classList.remove("hidden");
-    }
-
-    document.getElementById("payment-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Grazie! Your order has been placed.");
-      this.reset();
-      document.getElementById("payment-section").classList.add("hidden");
-      document.getElementById("slider").classList.remove("hidden");
-    });
-
-    // Swipe gesture detection
-    let startX = 0;
-    const slider = document.getElementById("slider");
-
-    slider.addEventListener("touchstart", e => {
-      startX = e.touches[0].clientX;
-    });
-
-    slider.addEventListener("touchend", e => {
-      const endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) nextDish();
-      else if (endX - startX > 50) prevDish();
-    });
-
-    updateDish();
-  </script>
 </body>
 </html>
+

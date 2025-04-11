@@ -4,7 +4,112 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ratatouille Restaurant</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #fffaf0;
+      color: #333;
+    }
+
+    .hero {
+      background-image: url('https://wallpapercave.com/wp/wp2543401.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 120px 20px;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+    }
+
+    .hero p {
+      font-size: 1.3em;
+      margin-bottom: 1em;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #ff6347;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .about, .menu-preview {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .about img {
+      max-width: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .menu-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .menu-items .item {
+      max-width: 250px;
+    }
+
+    .menu-items img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .menu-items h3 {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #444;
+    }
+
+    footer {
+      background-color: #222;
+      color: #eee;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #1e1e1e;
+      color: #ddd;
+    }
+
+    body.dark-mode .hero {
+      color: #fff;
+    }
+
+    body.dark-mode footer {
+      background-color: #000;
+    }
+
+    body.dark-mode .btn {
+      background-color: #ffa07a;
+    }
+
+    body.dark-mode .menu-items h3 {
+      color: #eee;
+    }
+  </style>
 </head>
 <body>
   <header class="hero">
@@ -41,7 +146,38 @@
     <p>&copy; 2025 Ratatouille Restaurant | Designed by Abhinav Reddy</p>
   </footer>
 
-  <!-- Link to JavaScript -->
-  <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script>
+    // Welcome message
+    window.addEventListener('load', () => {
+      alert("Bienvenue! Welcome to Ratatouille Restaurant!");
+    });
+
+    // Smooth scroll to menu
+    document.querySelector('.btn').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Dark mode toggle
+    const toggleButton = document.createElement('button');
+    toggleButton.textContent = 'Toggle Dark Mode';
+    toggleButton.style.position = 'fixed';
+    toggleButton.style.bottom = '20px';
+    toggleButton.style.right = '20px';
+    toggleButton.style.padding = '10px';
+    toggleButton.style.backgroundColor = '#222';
+    toggleButton.style.color = '#fff';
+    toggleButton.style.border = 'none';
+    toggleButton.style.borderRadius = '8px';
+    toggleButton.style.cursor = 'pointer';
+
+    document.body.appendChild(toggleButton);
+
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
 </body>
 </html>
+

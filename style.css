@@ -80,3 +80,26 @@ footer {
   margin-top: 50px;
 }
 
+/* Optional Dark Mode Styles */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark-mode .hero {
+  color: #fff;
+}
+
+body.dark-mode footer {
+  background-color: #000;
+}
+
+body.dark-mode .btn {
+  background-color: #ffa07a;
+}
+
+body.dark-mode .menu-items h3 {
+  color: #eee;
+}
+
+
